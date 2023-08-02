@@ -1,6 +1,6 @@
 <script setup>
 import TheCounter from '@/components/TheCounter.vue'
-import TheNote from '@/components/TheNote.vue'
+import TheNote from '@/views/TheNote.vue'
 
 </script>
 

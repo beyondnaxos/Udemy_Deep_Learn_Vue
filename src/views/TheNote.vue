@@ -9,8 +9,24 @@
 
 // Modal handle note
 const newNote = ref('')
+const notes = ref([])
 
+function getRandomColor () {
+    return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
+  
+}
 
+const addNote = () => {
+    notes.value.push({
+        id : Math.floor(Math.random() * 1000000 ),
+        text: newNote.value,
+        date: new Date().toLocaleDateString(),
+        backgroundColor: getRandomColor(),
+    })
+    newNote.value = ''
+    toggleModal()   
+}
+ 
 
 
 </script>
@@ -19,7 +35,7 @@ const newNote = ref('')
     <div v-if='showModal === true' class="overlay">
         <div class="modal">
             <textarea v-model="newNote" name="note" id="note" cols="30" rows="10"></textarea>
-            <button>Add Note</button>
+            <button @click="addNote">Add Note</button>
             <button @click="toggleModal" class="close">Close</button>
         </div>
     </div>
@@ -27,7 +43,7 @@ const newNote = ref('')
         <header>
             <h1>Notes</h1>
             <button @click="toggleModal">+</button>
-        </header>
+        </header> 
         <div class="cards-container">
             <div class="card">
                 <p class="main-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam hic ducimus ratione
@@ -39,7 +55,7 @@ const newNote = ref('')
                     nisi, esse minima?</p>
                 <p class="date">12/05/2022</p>
             </div>
-           
+
         </div>
     </div>
 </template>
@@ -110,7 +126,7 @@ header button {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.77);
     z-index: 10;
-    display: flex;  
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -133,7 +149,7 @@ header button {
     border: none;
     color: white;
     cursor: pointer;
-        margin-top: 15px;
+    margin-top: 15px;
 }
 
 .modal .close {
