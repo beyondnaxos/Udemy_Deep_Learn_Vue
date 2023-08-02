@@ -1,21 +1,27 @@
 <script setup>
- 
+ import {ref} from 'vue'
+
+ const showModal = ref(false)
+
+ const toggleModal = () => {
+   showModal.value = !showModal.value
+ }
 
 
 </script>
 
 <template>
-    <!-- <div class="overlay">
+    <div v-if='showModal === true' class="overlay">
         <div class="modal">
             <textarea name="note" id="note" cols="30" rows="10"></textarea>
             <button>Add Note</button>
-            <button class="close">Close</button>
+            <button @click="toggleModal" class="close">Close</button>
         </div>
-    </div> -->
+    </div>
     <div class="container">
         <header>
             <h1>Notes</h1>
-            <button>+</button>
+            <button @click="toggleModal">+</button>
         </header>
         <div class="cards-container">
             <div class="card">
