@@ -1,67 +1,16 @@
 <script setup>
-import {ref} from 'vue'
-
-const count = ref(0)
+import TheCounter from '@/components/TheCounter.vue'
 
 </script>
 
 <template>
- <main>
-  <div class="counter-group">
-    <h4>The current count is ...</h4>
-    <h1 v-if="count >= 0">{{ count }}</h1>
-    <h1 v-else>Negative count =  {{ count }}</h1>
+  <main>
+    <!-- <TheCounter /> -->
+  </main>
 
-    <div class="btn-group">
-      <button @click="count--">-</button>
-      <button @click="count++">+</button>
-    </div>
-  </div>
- </main>
 </template>
 
 <style scoped>
-main {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.counter-group {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  width: 300px;
-  height: 300px;
-}
-
-h4 {
-  font-size: 30px;
-  margin: 0;
-}
-
-.btn-group {
-  width: 100%;
-  display: flex;
-  column-gap: 10px;
-}
-
-button {
-  width: 50%;
-  height: 50px;
-  border: none;
-  background-color: #000;
-  color: #fff;
-  font-size: 25px;
-  cursor: pointer;
-  border-radius: 50px;
-}
 
 
 </style>
