@@ -45,16 +45,16 @@ const addNote = () => {
             <button @click="toggleModal">+</button>
         </header> 
         <div class="cards-container">
-            <div class="card">
-                <p class="main-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam hic ducimus ratione
-                    nisi, esse minima?</p>
-                <p class="date">12/05/2022</p>
+            <div 
+            v-for="note in notes" 
+            :key="note.id" 
+            class="card"
+            :style="{backgroundColor: note.backgroundColor}"    
+            >
+                <p class="main-text">{{note.text}}</p>
+                <p class="date">{{note.date}}</p>
             </div>
-            <div class="card">
-                <p class="main-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam hic ducimus ratione
-                    nisi, esse minima?</p>
-                <p class="date">12/05/2022</p>
-            </div>
+          
 
         </div>
     </div>
