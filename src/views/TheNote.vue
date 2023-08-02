@@ -1,40 +1,44 @@
 <script setup>
  import {ref} from 'vue'
+import TheCard from '@/components/TheCard.vue'
 
-//  modal toggle
  const showModal = ref(false)
+ const newNote = ref('')
+ const notes = ref([])
+ const errorMessage = ref('')
+
  const toggleModal = () => {
    showModal.value = !showModal.value
  }
 
-// Modal handle note
-const newNote = ref('')
-const notes = ref([])
-
 function getRandomColor () {
     return "hsl(" + Math.random() * 360 + ", 100%, 75%)";
-  
 }
 
 const addNote = () => {
+    if ( newNote.value.length < 10) {
+        return errorMessage.value 
+        = 'Note must be at least 10 characters long'
+    }
     notes.value.push({
         id : Math.floor(Math.random() * 1000000 ),
         text: newNote.value,
         date: new Date().toLocaleDateString(),
         backgroundColor: getRandomColor(),
     })
+
     newNote.value = ''
     toggleModal()   
+    errorMessage.value = ''
 }
- 
-
-
 </script>
 
 <template>
+
     <div v-if='showModal === true' class="overlay">
         <div class="modal">
-            <textarea v-model="newNote" name="note" id="note" cols="30" rows="10"></textarea>
+            <textarea v-model.trim="newNote" name="note" id="note" cols="30" rows="10"></textarea>
+            <p v-show="errorMessage" class="error-message">{{errorMessage}}</p> 
             <button @click="addNote">Add Note</button>
             <button @click="toggleModal" class="close">Close</button>
         </div>
@@ -45,19 +49,10 @@ const addNote = () => {
             <button @click="toggleModal">+</button>
         </header> 
         <div class="cards-container">
-            <div 
-            v-for="note in notes" 
-            :key="note.id" 
-            class="card"
-            :style="{backgroundColor: note.backgroundColor}"    
-            >
-                <p class="main-text">{{note.text}}</p>
-                <p class="date">{{note.date}}</p>
-            </div>
-          
-
+            <TheCard v-for="note in notes" :key="note.id" :note="note" /> 
         </div>
     </div>
+    
 </template>
 
 
@@ -99,26 +94,7 @@ header button {
     flex-wrap: wrap;
 }
 
-.card {
-    width: 225px;
-    height: 225px;
-    background-color: rgb(237, 182, 44);
-    padding: 20px;
-    border-radius: 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-left: 20px;
-    margin-bottom: 20px;
-    font-family: 'roboto';
 
-
-}
-
-.date {
-    font-size: 12px;
-    font-weight: bold;
-}
 
 .overlay {
     position: absolute;
@@ -154,5 +130,14 @@ header button {
 
 .modal .close {
     background-color: #918f8f;
+}
+
+.error-message {
+    color: red;
+    font-weight: bold;
+    margin: 0;
+    margin-top: 10px;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
 }
 </style>
