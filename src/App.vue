@@ -3,18 +3,26 @@ import {ref} from 'vue'
 
 const count = ref(0)
 
+const addToCount = () => {
+  count.value = count.value + 1
+}
+
+const substractToCount = () => {
+  count.value = count.value -1
+}
+
 </script>
 
 <template>
  <main>
   <div class="counter-group">
     <h4>The current count is ...</h4>
-    <h1 v-if="count >= 0">{{ count }}</h1>
-    <h1 v-else>Negative count =  {{ count }}</h1>
+
+    <h1 >{{ count }}</h1>
 
     <div class="btn-group">
-      <button @click="count--">-</button>
-      <button @click="count++">+</button>
+      <button @click="substractToCount">-</button>
+      <button @click="addToCount">+</button>
     </div>
   </div>
  </main>
