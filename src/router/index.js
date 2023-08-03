@@ -2,26 +2,29 @@ import { createRouter, createWebHistory } from 'vue-router'
 import TheQuiz from '../views/TheQuiz.vue'
 import TheNote from '../views/TheNote.vue'
 import TheCounter from '../components/TheCounter.vue'
-
+import TheQuestion from '../views/TheQuestion.vue'
 
 const routes = [
-    {
+  {
     path: '/',
     name: 'Quiz',
-    component: TheQuiz
-    },
-    {
+    component: TheQuiz,
+  },
+  {
     path: '/note',
     name: 'Note',
-    component: TheNote
-    },
-    {
+    component: TheNote,
+  },
+  {
     path: '/counter',
     name: 'Counter',
-    component: TheCounter
-    },
-
-
+    component: TheCounter,
+  },
+  {
+    path: '/:id',
+    name: 'questions',
+    component: TheQuestion,
+  },
 ]
 
 const router = createRouter({

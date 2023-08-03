@@ -1,6 +1,8 @@
 
 <script setup>
 import { defineProps } from 'vue'
+import {RouterLink} from 'vue-router'   
+
 const props = defineProps({
     quiz: {
         type: Object,
@@ -12,13 +14,13 @@ const props = defineProps({
 
 </script>
 <template>
-    <div class="card">
+    <RouterLink  :to="`/${quiz.id}`" class="card">
         <img :src='quiz.img' alt="">
         <div class="card-text">
             <h2>{{quiz.name}}</h2>
             <p>{{quiz.questions.length}} Questions</p>
         </div> 
-     </div>
+     </RouterLink>
 </template>
 
 
@@ -31,7 +33,8 @@ const props = defineProps({
         margin-bottom: 35px;
         margin-right: 20px;
         cursor: pointer;
-
+        text-decoration: none;
+        color: black;
         font-family: 'Poppins', sans-serif;
     }
 

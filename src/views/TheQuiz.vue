@@ -31,7 +31,7 @@ watch(search, () => {
 
 <style scoped>
 .container {
-    max-width: 1000px;
+    max-width: 1000px; 
     margin: 0 auto;
     padding: 50px;
 }
