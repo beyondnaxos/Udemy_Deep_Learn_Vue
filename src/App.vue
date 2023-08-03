@@ -1,13 +1,20 @@
 <script setup>
 import TheCounter from '@/components/TheCounter.vue'
 import TheNote from '@/views/TheNote.vue'
+import TheQuiz from '@/views/TheQuiz.vue'
 
 </script>
 
 <template>
   <main>
+    <!-- p1 -->
     <!-- <TheCounter /> -->
-    <TheNote />
+    <!-- p2 -->
+    <!-- <TheNote /> -->
+    <!-- p3 -->
+    <TheQuiz />
+     
+
   </main>
 
 </template>

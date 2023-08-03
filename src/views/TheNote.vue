@@ -31,6 +31,7 @@ const addNote = () => {
     toggleModal()   
     errorMessage.value = ''
 }
+
 </script>
 
 <template>
@@ -52,7 +53,7 @@ const addNote = () => {
             <TheCard v-for="note in notes" :key="note.id" :note="note" /> 
         </div>
     </div>
-    
+
 </template>
 
 

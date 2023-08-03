@@ -10,7 +10,6 @@ const props = defineProps({
 
 </script>
 
-
 <template lang="">
     <div 
             :key="note.id" 
