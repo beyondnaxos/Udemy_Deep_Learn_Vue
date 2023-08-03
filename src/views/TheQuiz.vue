@@ -1,8 +1,16 @@
 <script setup>
 import q from '@/data/quizes.json'
-import {ref} from 'vue'
+import {ref, watch} from 'vue'
 
 const quizes = ref(q)
+
+const search = ref('')
+
+//watch permet de surveiller une variable et de faire une action quand elle change
+watch(search, () => {
+    quizes.value = q.filter(quiz => quiz.name.toLowerCase().includes(search.value.toLowerCase()))
+})
+
 
 
 </script>
@@ -12,7 +20,7 @@ const quizes = ref(q)
     <div class="container">
         <header>
             <h1>Quizes</h1>
-            <input type="text" placeholder="Search...">
+            <input v-model.trim="search" type="text" placeholder="Search...">
         </header>
         <div class="options-container">
              <div v-for='quiz in quizes' :key='quiz.id' class="card">
