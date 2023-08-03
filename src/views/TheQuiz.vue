@@ -33,6 +33,7 @@ watch(search, () => {
 .container {
     max-width: 1000px;
     margin: 0 auto;
+    padding: 50px;
 }
 
 header {

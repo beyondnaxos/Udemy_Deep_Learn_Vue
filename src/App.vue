@@ -1,18 +1,16 @@
 <script setup>
-// import TheCounter from '@/components/TheCounter.vue'
-// import TheNote from '@/views/TheNote.vue'
-import TheQuiz from '@/views/TheQuiz.vue'
+import { RouterView} from 'vue-router'
+import TheNav from './components/TheNav.vue';
+
+
 
 </script>
 
 <template>
   <main>
-    <!-- p1 -->
-    <!-- <TheCounter /> -->
-    <!-- p2 -->
-    <!-- <TheNote /> -->
-    <!-- p3 -->
-    <TheQuiz />
+    <TheNav />
+
+    <RouterView />
      
 
   </main>
@@ -23,6 +21,7 @@ import TheQuiz from '@/views/TheQuiz.vue'
 main {
   height: 100vh;
   width: 100vw;
+  
 }
 
 </style>

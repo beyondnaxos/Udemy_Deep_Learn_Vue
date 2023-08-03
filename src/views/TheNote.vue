@@ -62,6 +62,7 @@ const addNote = () => {
     max-width: 1000px;
     padding: 10px;
     margin: 0 auto;
+    
 }
 
 header {
