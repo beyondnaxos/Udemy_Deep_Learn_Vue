@@ -8,6 +8,7 @@ const props = defineProps({
     }
 })
 
+// const {quiz} = defineProps(['quiz'])
 
 </script>
 <template>
