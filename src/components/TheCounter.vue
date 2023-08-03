@@ -17,9 +17,7 @@ const substractToCount = () => {
  <main>
   <div class="counter-group">
     <h4>The current count is ...</h4>
-
     <h1 >{{ count }}</h1>
-
     <div class="btn-group">
       <button @click="substractToCount">-</button>
       <button @click="addToCount">+</button>
