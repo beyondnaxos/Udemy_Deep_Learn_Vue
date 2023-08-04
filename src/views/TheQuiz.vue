@@ -17,6 +17,18 @@ watch(search, () => {
   )
 })
 
+const beforeEnter = () => {
+    console.log('beforeEnter')      
+}
+
+const enter = () => {
+    console.log('enter')      
+}
+
+const afterEnter = () => {
+    console.log('afterEnter')      
+}
+
 </script>
 
 <template>
@@ -30,7 +42,13 @@ watch(search, () => {
             />
         </header>
         <div class="options-container">
-            <TransitionGroup name="card" appear>
+            <TransitionGroup 
+                name="card" 
+                appear
+                @before-enter="beforeEnter"
+                @enter="enter"
+                @after-enter="afterEnter"
+            >
                 <TheQuizCard 
                     v-for="quiz in quizes" 
                     :key="quiz.id" 
