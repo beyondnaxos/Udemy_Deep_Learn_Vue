@@ -1,6 +1,11 @@
 <script setup>
 import TheMovieCard from '../components/TheMovieCard.vue';
 
+const baseUrl = "http://localhost:8080/api/characters"
+
+
+
+
 </script>
 
 <template>
