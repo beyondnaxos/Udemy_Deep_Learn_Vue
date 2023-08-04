@@ -13,7 +13,9 @@ const navigateToQuiz = () => {
 </script>
 <template>
     <div @click='navigateToQuiz' class="card">
-        <img :src='quiz.img' alt="">
+        <img   
+            :src='quiz.img' 
+            alt="" >
         <div class="card-text">
             <h2>{{quiz.name}}</h2>
             <p>{{quiz.questions.length}} Questions</p>

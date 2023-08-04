@@ -24,16 +24,16 @@ watch(search, () => {
         <header>
             <h1>Quizes</h1>
             <input 
-            v-model.trim="search" 
-            type="text" 
-            placeholder="Search..." 
+                v-model.trim="search" 
+                type="text" 
+                placeholder="Search..." 
             />
         </header>
         <div class="options-container">
             <TheQuizCard 
-            v-for="quiz in quizes" 
-            :key="quiz.id" 
-            :quiz="quiz" 
+                v-for="quiz in quizes" 
+                :key="quiz.id" 
+                :quiz="quiz" 
             />
         </div>
     </div>

@@ -4,6 +4,7 @@ import { ref , watch, computed} from 'vue'
 import quizes from '@/data/quizes.json'
 import TheQuizHeader from '@/components/TheQuizHeader.vue'
 import TheQuestion from '@/components/TheQuestion.vue'
+import TheResult from '@/components/TheResult.vue'
 
 // handle the route params
 const route = useRoute()
@@ -18,6 +19,9 @@ const currentQuestionIndex = ref(0)
 // handle correct answers
 const numberOfCorrectAnswers = ref(0)   
 
+// handle show result state
+const showResult = ref(false)
+
 // handle the question status with computed
 const questionStatus = computed(() =>  `${currentQuestionIndex.value + 1} / ${quiz.questions.length}`)
 const barPercentage = computed(() => `${currentQuestionIndex.value / quiz.questions.length * 100}%` )
@@ -27,6 +31,10 @@ const onOptionSelected = (isCorrect) => {
     if(isCorrect) {
         numberOfCorrectAnswers.value++
     }
+
+    if(quiz.questions.length -1 === currentQuestionIndex.value ) {
+        showResult.value = true
+    } 
     currentQuestionIndex.value++
 }
 
@@ -46,8 +54,14 @@ const onOptionSelected = (isCorrect) => {
         />
             <div class="container">
                 <TheQuestion 
-                :question="quiz.questions[currentQuestionIndex]" 
-                @selectOption="onOptionSelected"
+                    v-if="!showResult"
+                    :question="quiz.questions[currentQuestionIndex]" 
+                    @selectOption="onOptionSelected"
+                />
+                <TheResult 
+                    v-else 
+                    :quizQuestionLength="quiz.questions.length" 
+                    :numberOfCorrectAnswers="numberOfCorrectAnswers"   
                 />
             </div>
     </div>
