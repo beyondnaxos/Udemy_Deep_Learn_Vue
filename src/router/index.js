@@ -1,9 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import TheQuiz from '../views/TheQuiz.vue'
 import TheNote from '../views/TheNote.vue'
-import TheCounter from '../components/TheCounter.vue'
+import TheCounter from '../views/TheCounter.vue'
 import TheQuestionContainer from '../views/TheQuestionContainer.vue'
 import The404 from '../views/The404.vue'
+import TheMovies from '../views/TheMovies.vue'  
+
 
 const routes = [
   {
@@ -34,6 +36,11 @@ const routes = [
     path: '/:catchall(.*)*',
     name: 'not-found',
     component: The404,
+  },
+  {
+    path: '/movies',
+    name: 'movies',
+    component: TheMovies,
   }
 ]
 

@@ -8,7 +8,7 @@ import { RouterLink } from 'vue-router'
         <RouterLink active-class="active" class='link' to="/">Quiz</RouterLink>    
         <RouterLink active-class="active"  class='link' to="/Note">Note</RouterLink>
         <RouterLink active-class="active"  class='link' to="/Counter">Counter</RouterLink>  
-    
+        <RouterLink active-class="active"  class='link' to="/movies">Movies</RouterLink>        
     </div>
 </template>
 

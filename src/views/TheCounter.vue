@@ -28,6 +28,12 @@ const substractToCount = () => {
 
 <style scoped>
 
+main  {
+
+  display: flex;
+  justify-content: center;
+
+}
 
 .counter-group {
   text-align: center;
