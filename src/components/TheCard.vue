@@ -1,12 +1,6 @@
 <script setup>
-import { defineProps } from 'vue'
 
-const props = defineProps({
-    note: {
-        type: Object,
-        required: true,
-    }
-})
+const {note} = defineProps(['note'])    
 
 </script>
 
@@ -34,8 +28,6 @@ const props = defineProps({
     margin-left: 20px;
     margin-bottom: 20px;
     font-family: 'roboto';
-
-
 }
 
 .date {

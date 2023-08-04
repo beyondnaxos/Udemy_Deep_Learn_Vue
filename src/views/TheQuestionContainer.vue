@@ -65,7 +65,6 @@ const onOptionSelected = (isCorrect) => {
                 />
             </div>
     </div>
-    <button @click="currentQuestionIndex++">NEXT</button>
 </template>
 
 <style scoped>
