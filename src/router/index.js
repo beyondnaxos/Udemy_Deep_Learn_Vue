@@ -2,7 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import TheQuiz from '../views/TheQuiz.vue'
 import TheNote from '../views/TheNote.vue'
 import TheCounter from '../components/TheCounter.vue'
-import TheQuestion from '../views/TheQuestion.vue'
+import TheQuestionContainer from '../views/TheQuestionContainer.vue'
 import The404 from '../views/The404.vue'
 
 const routes = [
@@ -28,7 +28,7 @@ const routes = [
   {
     path: '/:id',
     name: 'questions',
-    component: TheQuestion,
+    component: TheQuestionContainer,
   }, 
   {
     path: '/:catchall(.*)*',
