@@ -23,7 +23,7 @@ const numberOfCorrectAnswers = ref(0)
 const showResult = ref(false)
 
 // handle the question status with computed
-const questionStatus = computed(() =>  `${currentQuestionIndex.value + 1} / ${quiz.questions.length}`)
+const questionStatus = computed(() =>  currentQuestionIndex.value + 1 <= quiz.questions.length ? `${currentQuestionIndex.value + 1} / ${quiz.questions.length}` : `${quiz.questions.length} / ${quiz.questions.length}`)
 const barPercentage = computed(() => `${currentQuestionIndex.value / quiz.questions.length * 100}%` )
 
 // handle the received option   

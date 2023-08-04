@@ -3,6 +3,7 @@
 import q from '@/data/quizes.json'
 import { ref, watch } from 'vue'
 import TheQuizCard from '@/components/TheQuizCard.vue'
+import {gsap} from 'gsap'
 
 // handle quizes and search
 const quizes = ref(q)
@@ -17,16 +18,27 @@ watch(search, () => {
   )
 })
 
-const beforeEnter = () => {
-    console.log('beforeEnter')      
+const beforeEnter = (el) => {
+    // card-enter-from
+    el.style.opacity = 0
+    el.style.transform = 'translateY(-100px)'     
 }
 
-const enter = () => {
-    console.log('enter')      
+const enter = (el) => {
+    // card-enter-to
+    gsap.to(el, {
+        y: 0,
+        opacity: 1,
+        duration: 0.42 ,
+        delay: el.dataset.index * 0.29,
+    })  
+    
+    // card-enter-active
+
 }
 
 const afterEnter = () => {
-    console.log('afterEnter')      
+     
 }
 
 </script>
@@ -43,16 +55,16 @@ const afterEnter = () => {
         </header>
         <div class="options-container">
             <TransitionGroup 
-                name="card" 
                 appear
                 @before-enter="beforeEnter"
                 @enter="enter"
                 @after-enter="afterEnter"
             >
                 <TheQuizCard 
-                    v-for="quiz in quizes" 
+                    v-for="(quiz, index) in quizes" 
                     :key="quiz.id" 
                     :quiz="quiz" 
+                    :data-index="index"
                 />
             </TransitionGroup>
         </div>
@@ -111,25 +123,4 @@ header input {
     margin: 0;
 }
 
-.card .card-text {
-    padding: 0 5px;
-}
-
-.card .card-text h2 {
-    font-weight: bold;
-}
-
-.card-enter-from {
-    transform: translateY(-50px);
-    opacity: 0;
-}
-
-.card-enter-to {
-    transform: translateY(0);
-    opacity: 1; 
-}
-
-.card-enter-active { 
-    transition: all 0.3s ease;
-}
 </style>
