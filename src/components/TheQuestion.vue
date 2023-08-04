@@ -7,12 +7,15 @@ const {question} = defineProps(['question'])
 
 
 <template>
-  
         <div class="question-container">
             <h1 class="question">{{question.text}}</h1>
         </div>
         <div class="options-container">
-            <div v-for="option in question.options" :key="option.id" class="option">
+            <div 
+            v-for="option in question.options" 
+            :key="option.id" 
+            class="option"
+            >
                 <p class="option-label">{{option.label}}</p>
                 <div class="option-value">
                     <p>{{option.text}}</p>

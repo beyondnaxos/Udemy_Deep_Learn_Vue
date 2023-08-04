@@ -10,7 +10,10 @@ const {questionStatus, barPercentage} = defineProps(['questionStatus', 'barPerce
     <header>
         <h4>Question {{questionStatus}}</h4>
         <div class="bar">
-            <div class="completion" :style="{width: barPercentage}" ></div>
+            <div 
+            class="completion" 
+            :style="{width: barPercentage}" 
+            ></div>
         </div>
     </header>
 </template>
