@@ -1,6 +1,6 @@
 <script setup> 
 import {useRoute} from 'vue-router'
-import { ref , watch} from 'vue'
+import { ref , watch, computed} from 'vue'
 import quizes from '@/data/quizes.json'
 import TheQuizHeader from '@/components/TheQuizHeader.vue'
 import TheQuestion from '@/components/TheQuestion.vue'
@@ -12,13 +12,18 @@ const quiz = quizes.find(q => q.id === quizId )
 
 const currentQuestionIndex = ref(0)
 
-const questionStatus = ref(`${currentQuestionIndex.value + 1} / ${quiz.questions.length}`)
+// const questionStatus = ref(`${currentQuestionIndex.value + 1} / ${quiz.questions.length}`)
 
 
-watch(() => currentQuestionIndex.value , () => {
-    questionStatus.value = `${currentQuestionIndex.value + 1} / ${quiz.questions.length}`
-})
+// watch(() => currentQuestionIndex.value , () => {
+//     questionStatus.value = `${currentQuestionIndex.value + 1} / ${quiz.questions.length}`
+// })
 
+const questionStatus = computed(() =>  `${currentQuestionIndex.value + 1} / ${quiz.questions.length}`)
+
+
+
+ 
 </script>
 
 <template>
