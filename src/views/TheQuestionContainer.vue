@@ -15,11 +15,26 @@ const quiz = quizes.find(q => q.id === quizId )
 // handle the current question index
 const currentQuestionIndex = ref(0)
 
+// handle correct answers
+const numberOfCorrectAnswers = ref(0)   
+
 // handle the question status with computed
 const questionStatus = computed(() =>  `${currentQuestionIndex.value + 1} / ${quiz.questions.length}`)
 const barPercentage = computed(() => `${currentQuestionIndex.value / quiz.questions.length * 100}%` )
 
+// handle the received option   
+const onOptionSelected = (isCorrect) => {
+    if(isCorrect) {
+        numberOfCorrectAnswers.value++
+    }
+    currentQuestionIndex.value++
+}
 
+/** 
+ * @selectOption="onOptionSelected"
+ * Permet de recevoir l'option sélectionnée 
+ * et de la passer à la fonction onOptionSelected
+*/
  
 </script>
 
@@ -32,6 +47,7 @@ const barPercentage = computed(() => `${currentQuestionIndex.value / quiz.questi
             <div class="container">
                 <TheQuestion 
                 :question="quiz.questions[currentQuestionIndex]" 
+                @selectOption="onOptionSelected"
                 />
             </div>
     </div>
