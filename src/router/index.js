@@ -3,12 +3,17 @@ import TheQuiz from '../views/TheQuiz.vue'
 import TheNote from '../views/TheNote.vue'
 import TheCounter from '../components/TheCounter.vue'
 import TheQuestion from '../views/TheQuestion.vue'
+import The404 from '../views/The404.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Quiz',
     component: TheQuiz,
+  },
+  {
+    path: '/quiz', 
+    redirect: '/'
   },
   {
     path: '/note',
@@ -24,7 +29,12 @@ const routes = [
     path: '/:id',
     name: 'questions',
     component: TheQuestion,
-  },
+  }, 
+  {
+    path: '/:catchall(.*)*',
+    name: 'not-found',
+    component: The404,
+  }
 ]
 
 const router = createRouter({
