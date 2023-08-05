@@ -15,6 +15,7 @@ const baseUrl = "http://localhost:8080/api/characters"
     <div class="container">
         <div class="cards">
             <TheMovieCard />
+            
         </div>
     </div>  
 </template>
