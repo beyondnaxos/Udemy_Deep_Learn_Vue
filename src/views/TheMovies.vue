@@ -1,7 +1,10 @@
 <script setup>
 import TheMovieCard from '../components/TheMovieCard.vue';
-
+import axios from "axios"
 const baseUrl = "http://localhost:8080/api/characters"
+
+
+
 
 
 
@@ -14,8 +17,17 @@ const baseUrl = "http://localhost:8080/api/characters"
     </div>
     <div class="container">
         <div class="cards">
-            <TheMovieCard />
-            
+            <Suspense>
+                <template #default>
+                    <TheMovieCard />
+                </template>
+                <template #fallback>
+                    <div class="">
+                        <p>Loading </p>
+                    </div>
+                </template>
+            </Suspense>
+
         </div>
     </div>  
 </template>
