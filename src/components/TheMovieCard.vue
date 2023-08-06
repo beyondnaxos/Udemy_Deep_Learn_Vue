@@ -2,14 +2,20 @@
 <script setup>
 
 import axios from "axios"
-// Allow to fix the number of characters to display
-const limit = "limit=4"
-// Allow to skip the first 4 characters
-const offset = "offset=4"
-const baseUrl = `http://localhost:8080/api/characters?${limit}&${offset}`
+import { ref, watch } from "vue"
+
+const baseUrl = `http://localhost:8080/api/characters?limit=4}`
+const characters = ref(null)
+const page = ref(0)
 
 const response = await axios.get(baseUrl)
-console.log(response.data)
+      characters.value = response.data
+
+
+watch(page , async() => {
+    const response = await axios.get(baseUrl + `&offset=${page.value * 4}`)
+          characters.value = response.data
+})
 
 </script>
 
@@ -17,5 +23,8 @@ console.log(response.data)
 <template>
     <div>
         <h1>Breaking Bad Card</h1>
+        <h1>{{ characters }}</h1>
+        <button @click="page = page - 1">Back</button>
+        <button @click="page = page + 1">Next</button>
     </div>
 </template>

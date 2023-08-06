@@ -59,7 +59,7 @@ const baseUrl = "http://localhost:8080/api/characters"
 /* Breaking Bad Styles */
 
 .container {
-    background-color: rgb(27, 26, 26);
+    background-color: rgb(255, 255, 255);
     padding: 30px
 }
 .cards {
@@ -101,7 +101,7 @@ const baseUrl = "http://localhost:8080/api/characters"
 /* Rick and Morty */
 
 .container {
-    background-color: rgb(27, 26, 26);
+    background-color: rgb(255, 255, 255);
     padding: 30px
 }
 .cards {
