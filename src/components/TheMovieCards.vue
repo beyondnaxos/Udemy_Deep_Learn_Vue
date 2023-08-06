@@ -28,6 +28,10 @@ watch(page , async() => {
         <div class="cards">
             <TheMovieCard v-for="character in characters" :key="character.char_id" :character="character" />
         </div>
+        <div class="button-container">
+            <button @click="page--" :disabled="page == 0">&lt</button>
+            <button @click="page++" :disabled="page > characters.length-1  ">&gt</button>
+        </div>
     </div>
 </template>
 
@@ -43,16 +47,7 @@ watch(page , async() => {
     flex-wrap: wrap;
     height: 700px
 }
-.cards h3 {
-    font-weight: bold;
-}
-.cards p {
-    font-size: 10px;
-}
-.jobs {
-    display: flex;
-    flex-wrap: wrap;
-}
+
 .button-container {
     display: flex;
     justify-content: center;
