@@ -1,5 +1,5 @@
 <script setup>
-import TheMovieCard from '../components/TheMovieCard.vue';
+import TheMovieCards from '@/components/TheMovieCards.vue';
 import axios from "axios"
 const baseUrl = "http://localhost:8080/api/characters"
 
@@ -19,7 +19,7 @@ const baseUrl = "http://localhost:8080/api/characters"
         <div class="cards">
             <Suspense>
                 <template #default>
-                    <TheMovieCard />
+                    <TheMovieCards />
                 </template>
                 <template #fallback>
                     <div class="">
@@ -56,52 +56,11 @@ const baseUrl = "http://localhost:8080/api/characters"
 }
 
 
-/* Breaking Bad Styles */
-
-.container {
-    background-color: rgb(255, 255, 255);
-    padding: 30px
-}
-.cards {
-    max-width: 1000px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    height: 700px
-}
-.cards h3 {
-    font-weight: bold;
-}
-.cards p {
-    font-size: 10px;
-}
-.jobs {
-    display: flex;
-    flex-wrap: wrap;
-}
-.button-container {
-    display: flex;
-    justify-content: center;
-    padding-top: 30px
-}
-.button-container button {
-    border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 100%;
-    margin: 0 5px;
-    cursor: pointer;
-}
-.spinner {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 /* Rick and Morty */
-
+/*
 .container {
-    background-color: rgb(255, 255, 255);
+    background-color: rgb(48, 47, 47);
     padding: 30px
 }
 .cards {
@@ -132,7 +91,7 @@ const baseUrl = "http://localhost:8080/api/characters"
 }
 
 /* Card Styles */
-
+/*
 .n-card {
     width: 200px;
     margin:10px 20px;
@@ -149,5 +108,5 @@ p {
 .jobs {
     display: flex;
     flex-wrap: wrap;
-}
+} */
 </style>

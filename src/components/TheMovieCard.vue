@@ -1,30 +1,45 @@
 
 <script setup>
 
-import axios from "axios"
-import { ref, watch } from "vue"
+const {character} = defineProps(['character'])
 
-const baseUrl = `http://localhost:8080/api/characters?limit=4}`
-const characters = ref(null)
-const page = ref(0)
-
-const response = await axios.get(baseUrl)
-      characters.value = response.data
-
-
-watch(page , async() => {
-    const response = await axios.get(baseUrl + `&offset=${page.value * 4}`)
-          characters.value = response.data
-})
 
 </script>
 
-
 <template>
-    <div>
-        <h1>Breaking Bad Card</h1>
-        <h1>{{ characters }}</h1>
-        <button @click="page = page - 1">Back</button>
-        <button @click="page = page + 1">Next</button>
-    </div>
+    <n-card >
+        <template #cover>
+            <img :src="character.img">
+        </template>
+
+        <h3>{{character.name}}</h3>
+        <div class="jobs">
+            <p 
+            v-for="(job, index) in character.occupation" 
+            :key="index">
+                {{ job }} <span v-if="index < character.occupation.length -1 ">,&nbsp</span>
+            </p>
+        </div>
+    </n-card>
 </template>
+
+<style scoped>
+.n-card {
+    width: 200px;
+    margin: 10px 20px;
+
+}
+
+.n-card img {
+    height: 250px
+}
+
+p {
+    font-size: 10px;
+}
+
+.jobs {
+    display: flex;
+    flex-wrap: wrap;
+} 
+</style>
