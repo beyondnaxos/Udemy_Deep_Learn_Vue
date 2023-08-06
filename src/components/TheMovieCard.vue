@@ -13,13 +13,11 @@ const {character} = defineProps(['character'])
         </template>
 
         <h3>{{character.name}}</h3>
-        <div class="jobs">
-            <p 
-            v-for="(job, index) in character.occupation" 
-            :key="index">
-                {{ job }} <span v-if="index < character.occupation.length -1 ">,&nbsp</span>
-            </p>
-        </div>
+       
+        <slot>
+
+        </slot>
+
     </n-card>
 </template>
 
@@ -34,12 +32,5 @@ const {character} = defineProps(['character'])
     height: 250px
 }
 
-p {
-    font-size: 10px;
-}
 
-.jobs {
-    display: flex;
-    flex-wrap: wrap;
-} 
 </style>

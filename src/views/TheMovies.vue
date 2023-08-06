@@ -1,5 +1,6 @@
 <script setup>
 import TheMovieCards from '@/components/TheMovieCards.vue';
+import TheRickCards from '@/components/TheRickCards.vue';
 import axios from "axios"
 const baseUrl = "http://localhost:8080/api/characters"
 
@@ -27,7 +28,9 @@ const baseUrl = "http://localhost:8080/api/characters"
                     </div>
                 </template>
             </Suspense>
-
+            <TheRickCards />
+            
+            
         </div>
     </div>  
 </template>
@@ -35,7 +38,7 @@ const baseUrl = "http://localhost:8080/api/characters"
 <style scoped>
 /* Hero Styles */
 .hero {
-    height : 40vh;
+    height : 10vh;
     display: flex;
     align-items: center;
     justify-content: center;
